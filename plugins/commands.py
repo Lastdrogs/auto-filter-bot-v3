@@ -147,9 +147,7 @@ async def start(client, message):
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
-                    reply_markup=InlineKeyboardMarkup([
-                    [ InlineKeyboardButton(text="Owner", url=f"https://t.me/happykidbgmz")]
-                    ]),
+                    [ InlineKeyboardButton(text="Owner", url=f"https://t.me/happykidbgmz")],
                     )
             except Exception as e:
                 logger.warning(e, exc_info=True)
