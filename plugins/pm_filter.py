@@ -452,7 +452,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             try:
                 f_caption = CUSTOM_FILE_CAPTION.format(file_name='' if title is None else title,
                                                        file_size='' if size is None else size,
-                                                       file_caption='' if f_caption is None else f_caption)
+                                                       file_caption='' if f_caption is None else f_caption,reply_markup=InlineKeyboardMarkup([
+                                                       [ InlineKeyboardButton(text="Owner", url=f"https://t.me/happykidbgmz")] ] ) )
             except Exception as e:
                 logger.exception(e)
             f_caption = f_caption
@@ -753,7 +754,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('♻️ HΞLᎮ ♻️', callback_data='help'),
             InlineKeyboardButton('♻️ ΛBOUT ♻️', callback_data='about')
             ],[
-            InlineKeyboardButton('✅ SUBSCᏒIBΞ  ✅', url='https://youtube.com/channel/UCf_dVNrilcT0V2R--HbYpMA')
+            InlineKeyboardButton('🖤 More Updatez 🖤', url='https://linktr.ee/HappyKidBGMZ')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
