@@ -60,9 +60,8 @@ async def answer(bot, query):
                 title=file.file_name,
                 file_id=file.file_id,
                 caption=f_caption,
-                reply_markup=InlineKeyboardMarkup(buttons),
                 description=f'Size: {get_size(file.file_size)}\nType: {file.file_type}',
-                reply_markup=reply_markup))
+                reply_markup=reply_InlineKeyboardMarkup(buttons)))
 
     if results:
         switch_pm_text = f"{emoji.FILE_FOLDER} Results - {total}"
