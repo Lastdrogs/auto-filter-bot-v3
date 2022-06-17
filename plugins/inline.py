@@ -45,7 +45,7 @@ async def answer(bot, query):
             try:
                 f_caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=f_caption)
 
-                buttons = [[
+                buttonsk = [[
                    InlineKeyboardButton('🍁 Oᴡɴᴇʀ', url="https://t.me/PeterParkerspide"),
                    InlineKeyboardButton('🧩 Oᴛʜᴇʀ ʙᴏᴛs', url="https://t.me/peterparker088github")
                   ]]
@@ -61,7 +61,7 @@ async def answer(bot, query):
                 file_id=file.file_id,
                 caption=f_caption,
                 description=f'Size: {get_size(file.file_size)}\nType: {file.file_type}',
-                reply_markup=reply_InlineKeyboardMarkup(buttons)))
+                reply_markup=reply_markup, reply_InlineKeyboardMarkup(buttonsk)))
 
     if results:
         switch_pm_text = f"{emoji.FILE_FOLDER} Results - {total}"
