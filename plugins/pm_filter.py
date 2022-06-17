@@ -475,7 +475,46 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     chat_id=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
-                    reply_markup=InlineKeyboardMarkup(buttons),
+                reply_markup=reply_markup))
+
+    if results:
+        switch_pm_text = f"{emoji.FILE_FOLDER} Results - {total}"
+        if string:
+            switch_pm_text += f" for {string}"
+        try:
+            await query.answer(results=results,
+                           is_personal = True,
+                           cache_time=cache_time,
+                           switch_pm_text=switch_pm_text,
+                           switch_pm_parameter="start",
+                           next_offset=str(next_offset))
+        except QueryIdInvalid:
+            pass
+        except Exception as e:
+            logging.exception(str(e))
+            await query.answer(results=[], is_personal=True,
+                           cache_time=cache_time,
+                           switch_pm_text=str(e)[:63],
+                           switch_pm_parameter="error")
+    else:
+        switch_pm_text = f'{emoji.CROSS_MARK} No results'
+        if string:
+            switch_pm_text += f' for "{string}"'
+
+        await query.answer(results=[],
+                           is_personal = True,
+                           cache_time=cache_time,
+                           switch_pm_text=switch_pm_text,
+                           switch_pm_parameter="okay")
+
+
+def get_reply_markup(query):
+    buttons = [
+        [
+            InlineKeyboardButton('Search again', switch_inline_query_current_chat=query)
+        ]
+        ]
+    return InlineKeyboardMarkup(buttons),
                     protect_content=True if ident == "filep" else False 
                 )
                 await query.answer('Check PM, I have sent files in pm', show_alert=True)
