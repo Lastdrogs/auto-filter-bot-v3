@@ -452,11 +452,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             try:
                 f_caption = CUSTOM_FILE_CAPTION.format(file_name='' if title is None else title,
                                                        file_size='' if size is None else size,
-                                                       file_caption='' if f_caption is None else f_caption)
-                buttons = [[
-                   InlineKeyboardButton('🍁 Oᴡɴᴇʀ', url="https://t.me/PeterParkerspide"),
-                   InlineKeyboardButton('🧩 Oᴛʜᴇʀ ʙᴏᴛs', url="https://t.me/peterparker088github")
-                  ]]                                                  
+                                                       file_caption='' if f_caption is None else f_caption)                                                  
             except Exception as e:
                 logger.exception(e)
             f_caption = f_caption
@@ -475,39 +471,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     chat_id=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
-                reply_markup=reply_markup)
-
-    if results:
-        switch_pm_text = f"{emoji.FILE_FOLDER} Results - {total}"
-        if string:
-            switch_pm_text += f" for {string}"
-        try:
-            await query.answer(results=results,
-                           is_personal = True,
-                           cache_time=cache_time,
-                           switch_pm_text=switch_pm_text,
-                           switch_pm_parameter="start",
-                           next_offset=str(next_offset))
-        except QueryIdInvalid:
-            pass
-        except Exception as e:
-            logging.exception(str(e))
-            await query.answer(results=[], is_personal=True,
-                           cache_time=cache_time,
-                           switch_pm_text=str(e)[:63],
-                           switch_pm_parameter="error")
-    else:
-        switch_pm_text = f'{emoji.CROSS_MARK} No results'
-        if string:
-            switch_pm_text += f' for "{string}"'
-
-        await query.answer(results=[],
-                           is_personal = True,
-                           cache_time=cache_time,
-                           switch_pm_text=switch_pm_text,
-                           switch_pm_parameter="okay")
-
-
+                reply_markup=reply_markup),
 def get_reply_markup(query):
     buttons = [
         [
