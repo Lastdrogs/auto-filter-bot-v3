@@ -454,9 +454,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                                                        file_size='' if size is None else size,
                                                        file_caption='' if f_caption is None else f_caption) 
 
-                buttons = [[
-                   InlineKeyboardButton('🍁 Oᴡɴᴇʀ', url="https://t.me/PeterParkerspide"),
-                   InlineKeyboardButton('🧩 Oᴛʜᴇʀ ʙᴏᴛs', url="https://t.me/peterparker088github")
+                buttonskr = [[
+                   InlineKeyboardButton('🍁 Cʜᴀɴɴᴇʟ', url="https://t.me/BGM_LINKZZ"),
+                   InlineKeyboardButton('🧩 Bᴏᴛᴢ Cʜᴀɴɴᴇʟ', url="https://t.me/KR_BOTZ")
                   ]]
                                                  
             except Exception as e:
@@ -477,7 +477,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     chat_id=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
-                reply_markup=InlineKeyboardMarkup(buttons),
+                reply_markup=InlineKeyboardMarkup(buttonskr),
                     protect_content=True if ident == "filep" else False 
                 )
                 await query.answer('Check PM, I have sent files in pm', show_alert=True)
@@ -504,9 +504,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 f_caption = CUSTOM_FILE_CAPTION.format(file_name='' if title is None else title,
                                                        file_size='' if size is None else size,
                                                        file_caption='' if f_caption is None else f_caption)
-                buttons = [[
-                   InlineKeyboardButton('🍁 Oᴡɴᴇʀ', url="https://t.me/PeterParkerspide"),
-                   InlineKeyboardButton('🧩 Oᴛʜᴇʀ ʙᴏᴛs', url="https://t.me/peterparker088github")
+                buttonsk = [[
+                   InlineKeyboardButton('🍁 Cʜᴀɴɴᴇʟ', url="https://t.me/BGM_LINKZZ"),
+                   InlineKeyboardButton('🧩 Bᴏᴛᴢ Cʜᴀɴɴᴇʟ', url="https://t.me/KR_BOTZ")
                   ]]
             except Exception as e:
                 logger.exception(e)
@@ -518,7 +518,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             chat_id=query.from_user.id,
             file_id=file_id,
             caption=f_caption,
-            reply_markup=InlineKeyboardMarkup(buttons),
+            reply_markup=InlineKeyboardMarkup(buttonsk),
             protect_content=True if ident == 'checksubp' else False
         )
     elif query.data == "removebg":
