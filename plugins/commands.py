@@ -132,10 +132,10 @@ async def start(client, message):
                     f_caption=f_caption
             if f_caption is None:
                 f_caption = f"{title}"
-            buttons = [
+            buttonskr = [
             [
-                  InlineKeyboardButton('🍁 Oᴡɴᴇʀ', url="https://t.me/PeterParkerspide"),
-                  InlineKeyboardButton('🧩 Oᴛʜᴇʀ ʙᴏᴛs', url="https://t.me/peterparker088github")
+              InlineKeyboardButton('🍁 Cʜᴀɴɴᴇʟ', url="https://t.me/BGM_LINKZZ"),
+              InlineKeyboardButton('🧩 Bᴏᴛᴢ Cʜᴀɴɴᴇʟ', url="https://t.me/KR_BOTZ")
             ]
             ]
             try:
@@ -143,7 +143,7 @@ async def start(client, message):
                     chat_id=message.from_user.id,
                     file_id=msg.get("file_id"),
                     caption=f_caption,
-                    reply_markup=InlineKeyboardMarkup(buttons),
+                    reply_markup=InlineKeyboardMarkup(buttonskr),
                     protect_content=msg.get('protect', False),
                     )
             except FloodWait as e:
@@ -242,17 +242,17 @@ async def start(client, message):
             f_caption=f_caption
     if f_caption is None:
         f_caption = f"{files.file_name}"
-    buttons = [
+    buttonsk = [
         [
-          InlineKeyboardButton('🍁 Oᴡɴᴇʀ', url="https://t.me/PeterParkerspide"),
-          InlineKeyboardButton('🧩 Oᴛʜᴇʀ ʙᴏᴛs', url="https://t.me/peterparker088github")
+          InlineKeyboardButton('🍁 Cʜᴀɴɴᴇʟ', url="https://t.me/BGM_LINKZZ"),
+          InlineKeyboardButton('🧩 Bᴏᴛᴢ Cʜᴀɴɴᴇʟ', url="https://t.me/KR_BOTZ")
         ]
         ]
     await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
         caption=f_caption,
-        reply_markup=InlineKeyboardMarkup(buttons),
+        reply_markup=InlineKeyboardMarkup(buttonsk),
         protect_content=msg.get('protect', False),
         )
                     
