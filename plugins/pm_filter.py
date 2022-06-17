@@ -452,7 +452,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
             try:
                 f_caption = CUSTOM_FILE_CAPTION.format(file_name='' if title is None else title,
                                                        file_size='' if size is None else size,
-                                                       file_caption='' if f_caption is None else f_caption)                                                  
+                                                       file_caption='' if f_caption is None else f_caption) 
+
+                buttons = [[
+                   InlineKeyboardButton('🍁 Oᴡɴᴇʀ', url="https://t.me/PeterParkerspide"),
+                   InlineKeyboardButton('🧩 Oᴛʜᴇʀ ʙᴏᴛs', url="https://t.me/peterparker088github")
+                  ]]
+                                                 
             except Exception as e:
                 logger.exception(e)
             f_caption = f_caption
@@ -471,14 +477,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     chat_id=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
-                reply_markup=reply_markup),
-def get_reply_markup(query):
-    buttons = [
-        [
-            InlineKeyboardButton('Search again', switch_inline_query_current_chat=query)
-        ]
-        ]
-    return InlineKeyboardMarkup(buttons),
+                reply_markup=InlineKeyboardMarkup(buttons),
                     protect_content=True if ident == "filep" else False 
                 )
                 await query.answer('Check PM, I have sent files in pm', show_alert=True)
